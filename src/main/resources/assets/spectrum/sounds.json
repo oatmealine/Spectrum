@@ -564,6 +564,18 @@
       "spectrum:howling_wind_low"
     ]
   },
+  "ambient.rain_shower": {
+    "subtitle": "spectrum.subtitles.rain_shower",
+    "sounds": [
+      "spectrum:shower"
+    ]
+  },
+  "ambient.laments": {
+    "subtitle": "spectrum.subtitles.laments",
+    "sounds": [
+      "spectrum:laments"
+    ]
+  },
   "ambient.crystal_aura": {
     "subtitle": "spectrum.subtitles.crystal_aura",
     "sounds": [
