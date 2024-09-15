@@ -70,34 +70,41 @@ public class BlackHoleChestBlockEntityRenderer implements BlockEntityRenderer<Bl
 
 		final double orbTransform = Math.sin((time + tickDelta) / 9F);
 		final float potentialYaw = (time + tickDelta) / 6F;
-		switch (chest.getState()) {
-			case OPEN_ACTIVE -> {
-				chest.storageTarget = 9;
-				chest.capTarget = 12;
-				chest.orbTarget = (float) (15 + orbTransform);
-				chest.yawTarget = potentialYaw;
-			}
-			case OPEN_INACTIVE -> {
-				chest.storageTarget = 9;
-				chest.capTarget = 12;
-				chest.orbTarget = chest.capTarget;
-			}
-			case CLOSED_ACTIVE -> {
-				chest.capTarget = 0;
-				chest.storageTarget = 0;
-				chest.orbTarget = (float) (12.5 + orbTransform * 2.5F);
-				chest.yawTarget = potentialYaw;
+		var state = chest.getState();
+		chest.storageTarget = 0;
+		chest.capTarget = 0;
+		chest.orbTarget = 0;
+		chest.yawTarget = 0;
+		if (state != null) {
+			switch (state) {
+				case OPEN_ACTIVE -> {
+					chest.storageTarget = 9;
+					chest.capTarget = 12;
+					chest.orbTarget = (float) (15 + orbTransform);
+					chest.yawTarget = potentialYaw;
+				}
+				case OPEN_INACTIVE -> {
+					chest.storageTarget = 9;
+					chest.capTarget = 12;
+					chest.orbTarget = chest.capTarget;
+				}
+				case CLOSED_ACTIVE -> {
+					chest.capTarget = 0;
+					chest.storageTarget = 0;
+					chest.orbTarget = (float) (12.5 + orbTransform * 2.5F);
+					chest.yawTarget = potentialYaw;
 
-			}
-			case CLOSED_INACTIVE -> {
-				chest.capTarget = 0;
-				chest.storageTarget = chest.capTarget;
-				chest.orbTarget = chest.capTarget;
-			}
-			case FULL -> {
-				chest.capTarget = 9;
-				chest.storageTarget = chest.capTarget;
-				chest.orbTarget = chest.capTarget;
+				}
+				case CLOSED_INACTIVE -> {
+					chest.capTarget = 0;
+					chest.storageTarget = chest.capTarget;
+					chest.orbTarget = chest.capTarget;
+				}
+				case FULL -> {
+					chest.capTarget = 9;
+					chest.storageTarget = chest.capTarget;
+					chest.orbTarget = chest.capTarget;
+				}
 			}
 		}
 
