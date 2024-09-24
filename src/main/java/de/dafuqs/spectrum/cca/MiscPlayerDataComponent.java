@@ -1,5 +1,6 @@
 package de.dafuqs.spectrum.cca;
 
+import de.dafuqs.additionalentityattributes.*;
 import de.dafuqs.spectrum.SpectrumCommon;
 import de.dafuqs.spectrum.api.entity.PlayerEntityAccessor;
 import de.dafuqs.spectrum.api.item.SleepAlteringItem;
@@ -9,6 +10,8 @@ import dev.onyxstudios.cca.api.v3.component.ComponentKey;
 import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.component.sync.AutoSyncedComponent;
 import dev.onyxstudios.cca.api.v3.component.tick.CommonTickingComponent;
+import net.minecraft.entity.attribute.*;
+import net.minecraft.entity.effect.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
@@ -20,7 +23,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Because not every niche thing can have its own component
@@ -100,7 +103,7 @@ public class MiscPlayerDataComponent implements AutoSyncedComponent, CommonTicki
     }
 
     private boolean isInModifiedMotionState() {
-        return player.isOnGround() || player.isSwimming() || player.isFallFlying();
+        return player.isOnGround() || player.isSwimming() || player.isFallFlying() || player.getAbilities().flying;
     }
 
     private void applyEnvironmentalLifeDrain(int amplifier) {
