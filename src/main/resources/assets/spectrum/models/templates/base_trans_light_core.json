@@ -53,6 +53,20 @@
 			}
 		},
 		{
+			"name": "filament",
+			"from": [6, 0.1, 6],
+			"to": [10, 15.9, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 0, -1]},
+			"faces": {
+				"north": {"uv": [0, 8, 16, 12], "rotation": 90, "texture": "#5"},
+				"east": {"uv": [0, 8, 16, 12], "rotation": 90, "texture": "#5"},
+				"south": {"uv": [0, 8, 16, 12], "rotation": 90, "texture": "#5"},
+				"west": {"uv": [0, 8, 16, 12], "rotation": 90, "texture": "#5"},
+				"up": {"uv": [0, 4, 4, 8], "texture": "#5"},
+				"down": {"uv": [0, 4, 4, 8], "texture": "#5"}
+			}
+		},
+		{
 			"name": "case",
 			"from": [0.5, 0.325, 0.5],
 			"to": [15.5, 15.475, 15.5],
